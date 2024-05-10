@@ -1,0 +1,19 @@
+name: Generate and Upload File
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Generate file
+      run: echo "Hello, World!" > hello.txt
+
+    - name: Upload file
+      uses: actions/upload-artifact@v2
+      with:
+        name: hello-file
+        path: hello.txt
